@@ -1,16 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form(action="upload", method="post", enctype="multipart/form-data")
-    input(type="text", name="first_name" placeholder="First Name")
-    input(type="text", name="last_name" placeholder="Last Name")
-    input(type="text", name="email" placeholder="Email")
-    input(type="text", name="position_id" placeholder="Position ID")
-    input(type="text", name="explanation" placeholder="How did you make the API request?")
-    input(type="text", name="projects" placeholder="Projects")
-    input(type="text", name="source" placeholder="How did you find Perka?")
-    input(type="file", name="resume")
-    label(for="resume") Upload your resume
-    input(type="submit" value="Submit")
+  .container
+    h1(class="header")= title
+    .form-group
+      form(action="upload", method="post", enctype="multipart/form-data")
+        .form-group
+          input(type="text", name="first_name" placeholder="First Name" class="form-control")
+        .form-group
+          input(type="text", name="last_name" placeholder="Last Name" class="form-control")
+        .form-group
+          input(type="text", name="email" placeholder="Email" class="form-control")
+        .form-group
+          input(type="text", name="position_id" placeholder="Position ID" class="form-control")
+        .form-group
+          input(type="text", name="explanation" placeholder="How did you make the API request?" class="form-control")
+        .form-group
+          input(type="text", name="projects" placeholder="Projects urls:    please separate by comma" class="form-control")
+        .form-group
+          input(type="text", name="source" placeholder="How did you find Perka?" class="form-control")
+        .form-group
+          input(type="file", name="resume")
+        .form-group
+          label(for="resume") Upload your resume
+        input(type="submit" value="Submit" class="btn btn-primary")

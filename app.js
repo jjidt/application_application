@@ -22,9 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/upload', multer({
     inMemory: true,
-    dest: './uploads/',
-    onFileUploadComplete: function (file) {
-    }
+    dest: './uploads/'
  }))
 
 app.use('/', routes);
