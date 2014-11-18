@@ -6,7 +6,6 @@ router.post('/', function(req, res) {
 	var bufferString = req.files.resume.buffer.toString('base64');
 	body.projects = body.projects.split(",");
 	body.resume = bufferString;
-	console.log(body);
 	res.send(body);
 });
 
