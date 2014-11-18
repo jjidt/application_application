@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var JSONrequest = require('request-json');
-var client = JSONrequest.newClient('http://localhost:8888/');
+var externalApiUrl = require('../constants').externalApiUrl;
+console.log(externalApiUrl);
+var client = JSONrequest.newClient(externalApiUrl);
 var bufferString;
 
 router.post('/', function(req, res) {
@@ -15,12 +17,11 @@ router.post('/', function(req, res) {
 	if (body.projects) {
 		body.projects = body.projects.split(",")
 	}
-	client.post('', body, function(err, result, body) {
-		if(err) {
-			res.send(err);
+	client.post('', body, function(err, response, body) {
+		if(response.statusCode === 200) {
+			res.send(response);
 		}
-  			res.send(result.statusCode);
-		})
+	});
 });
 
 module.exports = router;
